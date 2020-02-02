@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/navbar";
 import Counters from "./components/counters";
@@ -14,8 +13,16 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log("App - Constructor");
+  }
+
+  componentDidMount() {
+    console.log("App - Mounted");
+  }
+
   handleDelete = counterid => {
-    console.log("handleDelete called for ", counterid);
     const counters = this.state.counters.filter(c => c.id !== counterid);
     this.setState({ counters });
   };
@@ -37,6 +44,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App - Rendered");
     return (
       <React.Fragment>
         <NavBar
